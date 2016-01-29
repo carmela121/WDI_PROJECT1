@@ -28,7 +28,7 @@ $(document).ready(function() {
 
   function matchCountry(text) {
     if (countries.indexOf(text) !== -1){
-    matchCountry('#correctAnswers');
+    console.log("it's a match!");
     }
   }
   
