@@ -59,7 +59,10 @@ $(document).ready(function() {
 
   function printCorrectAnswer(text){
     if (matchCountry === countries){
+    $('#correctAnswers').text(countries);
+
     }
+
   }
 
   //timer
