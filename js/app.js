@@ -50,7 +50,7 @@ $(document).ready(function() {
   }
 
   //Change turn
-  
+
   
 
   $('#new-country-form').on("submit", function(event) {
@@ -112,9 +112,15 @@ $(document).ready(function() {
     startTimer(threeMinutes, display);
   }
 
+//Button click starts the timer and makes the button disapear
   $('button').on("click", function() {
   startClock();
+  $(this).hide();
+  $("hidden").hide();
+  
   });
+
+  
 
 });
 
