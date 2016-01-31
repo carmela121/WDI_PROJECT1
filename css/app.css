@@ -10,4 +10,8 @@ body{
   margin:0px 
   auto; 
   background:#FFF 
-   }
+}
+
+input.hidden {
+  display: none;
+}

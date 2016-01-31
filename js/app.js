@@ -27,7 +27,7 @@
 $(document).ready(function() {
 
 
-
+  var $answers = $('#printAnswers');
 
   // $(document).on("keyup", function(e) {
   //   if(e.keyCode === 13) {
@@ -43,10 +43,14 @@ $(document).ready(function() {
     console.log(countries.indexOf(text.toLowerCase()))
     if (countries.indexOf(text.toLowerCase()) !== -1){
       console.log("it's a match!");
+      $('#printAnswers').append('<li>' + text + '</li>');
     } else {
       console.log("Sorry, please try again");
     }
   }
+
+  //Change turn
+  
   
 
   $('#new-country-form').on("submit", function(event) {
@@ -56,14 +60,16 @@ $(document).ready(function() {
     $("#new-country-input").val("");
     matchCountry(text);
   });
+//Correct answer prints on the screen
+  // function printCorrectAnswer(text){
+  //   if (matchCountry === countries){
+  //   $('#printAnswers').text(countries);
+  //   }
 
-  function printCorrectAnswer(text){
-    if (matchCountry === countries){
-    $('#correctAnswers').text(countries);
+  // }
+  //After time is up, it is player's 2 turn
 
-    }
-
-  }
+  
 
   //timer
   function startTimer(duration, display) {
@@ -84,7 +90,7 @@ $(document).ready(function() {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds; 
+        display.text(minutes + ":" + seconds); 
 
         if (diff <= 0) {
           // add one second so that the count down starts at  full duration
@@ -98,14 +104,17 @@ $(document).ready(function() {
   }
 
   function startClock() {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#screen');
-    startTimer(fiveMinutes, display);
+    var threeMinutes = 60 * 3,
+        display = $('#screen');
+
+    // show text box...
+    $('#new-country-input').removeClass('hidden');
+    startTimer(threeMinutes, display);
   }
 
   $('button').on("click", function() {
   startClock();
-  })
+  });
 
 });
 
