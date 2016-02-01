@@ -10,20 +10,22 @@ $(document).ready(function() {
   //searches for a match on the country list
   function matchCountry(text) {
     var pinClass = "." + text.toLowerCase().replace(/ /g, "-");
-    $('.pin' + pinClass).removeClass('hidden');
-    if (countries.indexOf(text.toLowerCase()) !== -1){
+    var $pin = $('.pin' + pinClass);
+    if (countries.indexOf(text.toLowerCase()) !== -1 && $pin.hasClass('hidden')){
+      $pin.removeClass('hidden');
       if(player === 1) {
         player1++;
       } else {
         player2++;
       }
-      $('.score1').text("player1 "+ player1);
-      $('.score2').text("player2 "+ player2);
       // display scores
       // $('#printAnswers').append('<li>' + text + '</li>');
     } else {
       console.log("Sorry, please try again");
     }
+
+    $('.score1').text("Player 1 "+ player1);
+    $('.score2').text("Player 2 "+ player2);
   }
 
  $('#new-country-form').on("submit", function(event) {
@@ -37,6 +39,7 @@ $(document).ready(function() {
   function startClock() {
     console.log("start clock");
     var display = $('#screen');
+
 
     // text box only shows when timer starts
     $('#new-country-input').removeClass('hidden');
@@ -55,7 +58,7 @@ $(document).ready(function() {
         clearInterval(timer)
         // change player & reset the board;
         if(player === 1) {
-          time = 5;
+          time = 3*60;
           player = 2;
           // reset the board
           $("#new-country-input").addClass('hidden');
@@ -82,6 +85,7 @@ $(document).ready(function() {
     $("hidden").hide();
     setTimeout(function() {
       $('button').show();
+      $(".pin").removeClass("hidden").addClass("hidden");
     }, 180000); 
   });  
   
