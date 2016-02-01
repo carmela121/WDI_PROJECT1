@@ -60,8 +60,8 @@ input {
 }
 
 
-input.hidden {
-  display: none;
+.hidden {
+  display: none !important;
 }
 
 /* PINS */
@@ -264,13 +264,11 @@ img.pin.romania {
 img.pin.russia {
   top: 135px;
   left: 476px;
-  }
-  
-}
+}  
 img.pin.san-marino {
   top: 364px;
   left: 232px;
-  
+
 }
 img.pin.serbia {
   top: 361px;

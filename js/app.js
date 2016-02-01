@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var time = 5;
+  var time = 60*3;
   var timer;
   var $answers = $('#printAnswers');
   var player1 = 0;
@@ -9,7 +9,8 @@ $(document).ready(function() {
 
   //searches for a match on the country list
   function matchCountry(text) {
-    console.log(countries.indexOf(text.toLowerCase()))
+    var pinClass = "." + text.toLowerCase().replace(/ /g, "-");
+    $('.pin' + pinClass).removeClass('hidden');
     if (countries.indexOf(text.toLowerCase()) !== -1){
       if(player === 1) {
         player1++;
