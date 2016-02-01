@@ -26,17 +26,10 @@
 
 $(document).ready(function() {
 
-
+  var time = 60 * 3;
+  var timer;
   var $answers = $('#printAnswers');
-
-  // $(document).on("keyup", function(e) {
-  //   if(e.keyCode === 13) {
-  //     var text = $("#new-country-input").val();
-  //     console.log(text);
-  //     matchCountry(text);
-  //     $("#new-country-input").val("");
-  //   }
-  // });
+  var $score = $('player1')
 
   //searches for a match on the country list
   function matchCountry(text) {
@@ -52,8 +45,7 @@ $(document).ready(function() {
   //Change turn
 
   
-
-  $('#new-country-form').on("submit", function(event) {
+ $('#new-country-form').on("submit", function(event) {
     event.preventDefault();
     var text = $("#new-country-input").val();
     console.log(text);
@@ -72,54 +64,72 @@ $(document).ready(function() {
   
 
   //timer
-  function startTimer(duration, display) {
-    var start = Date.now(),
-        diff,
-        minutes,
-        seconds;
+  // function startTimer(duration, display) {
+  //   var start = Date.now(),
+  //       diff,
+  //       minutes,
+  //       seconds;
 
-    function timer() {
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+  //   function timer() {
+  //       // get the number of seconds that have elapsed since 
+  //       // startTimer() was called
+  //       diff = duration - (((Date.now() - start) / 1000) | 0);
 
-        // does the same job as parseInt truncates the float
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
+  //       // does the same job as parseInt truncates the float
+  //       minutes = (diff / 60) | 0;
+  //       seconds = (diff % 60) | 0;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+  //       minutes = minutes < 10 ? "0" + minutes : minutes;
+  //       seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.text(minutes + ":" + seconds); 
+  //       display.text(minutes + ":" + seconds); 
 
-        if (diff <= 0) {
-          // add one second so that the count down starts at  full duration
-          // example 05:00 not 04:59
-          start = Date.now() + 1000;
-        }
-    };
-    // we don't want to wait a full second before the timer starts
-    timer();
-    setInterval(timer, 1000);
-  }
+  //       if (diff <= 0) {
+  //         // add one second so that the count down starts at  full duration
+  //         // example 05:00 not 04:59
+  //         start = Date.now() + 1000;
+  //       }
+  //   };
+  //   // we don't want to wait a full second before the timer starts
+  //   timer();
+  //   setInterval(timer, 1000);
+  // }
 
   function startClock() {
-    var threeMinutes = 60 * 3,
-        display = $('#screen');
+    console.log("start clock");
+    var display = $('#screen');
 
-    // show text box...
+    // text box only shows when timer starts
     $('#new-country-input').removeClass('hidden');
-    startTimer(threeMinutes, display);
+    timer = setInterval(function(){
+      time -= 1;
+
+      minutes = Math.floor(time / 60);
+      seconds = time % 60;
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.text(minutes + ":" + seconds);
+      var player1;
+      var player2;
+      if(time === 0) {
+        clearInterval(timer)
+        // change player & reset the board;
+      }
+    }, 1000)
   }
+
 
 //Button click starts the timer and makes the button disapear
   $('button').on("click", function() {
-  startClock();
-  $(this).hide();
-  $("hidden").hide();
-  
-  });
-
+    startClock();
+    $(this).hide();
+    $("hidden").hide();
+    setTimeout(function() {
+      $('button').show();
+    }, 180000); 
+  });  
   
 
 });
@@ -130,8 +140,7 @@ $(document).ready(function() {
 
 
 
-// var countryMatch = window.countries;
-// countries.indexOf(countryMatch);
+
 
 
 
