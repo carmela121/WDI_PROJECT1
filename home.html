@@ -2,27 +2,88 @@
 <html>
 <head>
   <title>Geography Game</title>
+
   <link rel="stylesheet" type="text/css" href="css/app.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>`
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/EuropeanCountries.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
 
-<div class = "container">
-  <img src="Images/EuropeMap2.png">
-<!--   <img src="Images/Map-Marker.png"> -->
-  <div class="score1">player1</div>
-  <div class="score2">player2</div>
-  <div class="correctAnswers"></div>
-  <div id="screen">00:00</div>
-  <ul id="printAnswers">
-  </ul>
-  <form id="new-country-form">
-    <input id="new-country-input" class="hidden">
-  </form>
-</div>
+  <div class="container">
+    <div class="map-content">
+      <img class="map" src="Images/map.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="andorra"src="Images/pin.png">
+      <img class="pin" class="armenia"src="Images/pin.png">
+      <img class="pin" class="austria"src="Images/pin.png">
+      <img class="pin" class="azerbaijan"src="Images/pin.png">
+      <img class="pin" class="belarus"src="Images/pin.png">
+      <img class="pin" class="belgium"src="Images/pin.png">
+      <img class="pin" class="bosnia-and-herzegovina"src="Images/pin.png">
+      <img class="pin" class="bulgaria"src="Images/pin.png">
+      <img class="pin" class="croatia"src="Images/pin.png">
+      <img class="pin" class="cyprus"src="Images/pin.png">
+      <img class="pin" class="czech-republic"src="Images/pin.png">
+      <img class="pin" class="denmark"src="Images/pin.png">
+      <img class="pin" class="estonia"src="Images/pin.png">
+      <img class="pin" class="finland"src="Images/pin.png">
+      <img class="pin" class="france"src="Images/pin.png">
+      <img class="pin" class="georgia"src="Images/pin.png">
+      <img class="pin" class="germany"src="Images/pin.png">
+      <img class="pin" class="greece"src="Images/pin.png">
+      <img class="pin" class="hungary"src="Images/pin.png">
+      <img class="pin" class="iceland"src="Images/pin.png">
+      <img class="pin" class="ireland"src="Images/pin.png">
+      <img class="pin" class="italy"src="Images/pin.png">
+      <img class="pin" class="kosovo"src="Images/pin.png">
+      <img class="pin" class="latvia"src="Images/pin.png">
+      <img class="pin" class="liechtenstein"src="Images/pin.png">
+      <img class="pin" class="lithuania"src="Images/pin.png">
+      <img class="pin" class="luxembourg"src="Images/pin.png">
+      <img class="pin" class="macedonia"src="Images/pin.png">
+      <img class="pin" class="malta"src="Images/pin.png">
+      <img class="pin" class="moldova"src="Images/pin.png">
+      <img class="pin" class="monaco"src="Images/pin.png">
+      <img class="pin" class="montenegro"src="Images/pin.png">
+      <img class="pin" class="the-netherlands"src="Images/pin.png">
+      <img class="pin" class="norway"src="Images/pin.png">
+      <img class="pin" class="poland"src="Images/pin.png">
+      <img class="pin" class="portugal"src="Images/pin.png">
+      <img class="pin" class="romania"src="Images/pin.png">
+      <img class="pin" class="russia"src="Images/pin.png">
+      <img class="pin" class="san-marino"src="Images/pin.png">
+      <img class="pin" class="serbia"src="Images/pin.png">
+      <img class="pin" class="slovakia"src="Images/pin.png">
+      <img class="pin" class="slovenia"src="Images/pin.png">
+      <img class="pin" class="spain"src="Images/pin.png">
+      <img class="pin" class="sweden"src="Images/pin.png">
+      <img class="pin" class="switzerland"src="Images/pin.png">
+      <img class="pin" class="turkey"src="Images/pin.png">
+      <img class="pin" class="ukraine"src="Images/pin.png">
+      <img class="pin" class="united-kingdom"src="Images/pin.png">
+      <img class="pin" class="vatican-city"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+      <img class="pin" class="albania"src="Images/pin.png">
+
+    </div>
+
+    <div class="scores">
+      <div class="score1">player1</div>
+      <div class="score2">player2</div>
+    </div>
+
+    <div id="screen">00:00</div>
+
+    <form id="new-country-form">
+      <input id="new-country-input" autocomplete="off" class="hidden" placeholder="Enter names here">
+    </form>
+  </div>
   <button class="hidden">Start!</button>
   <div class="winner"></div>
-</body>
+  </body>
 </html>

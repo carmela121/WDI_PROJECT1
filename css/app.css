@@ -1,22 +1,74 @@
-body{
+body {
+  text-align: center;
   background: white;
 }
 
-#map { 
-  position:relative; 
-  top:20px; 
-  width:700px; 
-  height:466px; 
-  margin:0px 
-  auto; 
-  background:#FFF 
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 700px;
 }
+
+img.map {
+  float: left;
+  width: 600px;
+  height: 500px;
+  border-radius: 3px;
+}
+
+img.pin {
+  top: 10px;
+  left: 300px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+div.scores {
+}
+
+div#screen {
+  position: absolute;
+  top: 0;
+  right: 105px;
+}
+
+.score1, .score2 {
+  display: inline-block;
+  color: #fff;
+  padding: 10px;
+  width: 75px;
+
+}
+
+.score1 {
+ background: #338A2E;
+}
+
+.score2 {
+  background: #236863;
+}
+
+#new-country-form {
+  clear: both;
+}
+
+form {
+  padding: 15px;
+}
+
+input {
+  border: 0;
+  font-size: 30px;
+  outline: none;
+}
+
+.map-content {
+  position: relative;
+}
+
 
 input.hidden {
   display: none;
-}
-
-#correctAnswers {
-  
 }
 
