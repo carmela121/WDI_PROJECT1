@@ -2,39 +2,49 @@ $(document).ready(function() {
 
   var time = 60*3;
   var timer;
-  var $answers = $('#printAnswers');
+  // var $answers = $('#printAnswers');
   var player1 = 0;
   var player2 = 0;
   var player = 1;
+  var audio = $('audio')[0];
 
-  //searches for a match on the country list
+  //searches for a match on the country list and adds a pin to the right country
   function matchCountry(text) {
     var pinClass = "." + text.toLowerCase().replace(/ /g, "-");
     var $pin = $('.pin' + pinClass);
     if (countries.indexOf(text.toLowerCase()) !== -1 && $pin.hasClass('hidden')){
       $pin.removeClass('hidden');
+      audio.play();
       if(player === 1) {
         player1++;
       } else {
         player2++;
       }
-      // display scores
-      // $('#printAnswers').append('<li>' + text + '</li>');
-    } else {
+     
+      } else {
       console.log("Sorry, please try again");
     }
+    // display scores
 
-    $('.score1').text("Player 1 "+ player1);
-    $('.score2').text("Player 2 "+ player2);
+    $('.score1').text("Player 1 - "+ player1);
+    $('.score2').text("Player 2 - "+ player2);
   }
 
  $('#new-country-form').on("submit", function(event) {
     event.preventDefault();
     var text = $("#new-country-input").val();
-    console.log(text);
+    
     $("#new-country-input").val("");
     matchCountry(text); 
   });
+ 
+ // var audioWin  = $('audio');
+ // var playSound = $(".pin");
+ // playSound[0].addEventListener('.pin', function() {
+ 
+ //      audioWin.play();
+ //   });
+
 
   function startClock() {
     console.log("start clock");
@@ -62,7 +72,9 @@ $(document).ready(function() {
           player = 2;
           // reset the board
           $("#new-country-input").addClass('hidden');
-          $('button').show();
+          $('.welcome-screen').removeClass('hidden');
+          $('h3').text("Player 2 get ready");
+          console.log($('.enter'));
         } else {
           // end the game
           // find winner
@@ -78,27 +90,19 @@ $(document).ready(function() {
   }
 
 
+  // $('.enter').on("click", function() {
+  //   $('.welcome-screen').addClass('hidden')
+  // })
+
+
 //Button click starts the timer and makes the button disapear
   $('button').on("click", function() {
+    $('.welcome-screen').addClass('hidden');
     startClock();
-    $(this).hide();
-    $("hidden").hide();
     setTimeout(function() {
-      $('button').show();
       $(".pin").removeClass("hidden").addClass("hidden");
     }, 180000); 
   });  
   
 
 });
-
-
-
-
-
-
-
-
-
-
-

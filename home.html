@@ -2,17 +2,17 @@
 <html>
 <head>
   <title>Geography Game</title>
-
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/EuropeanCountries.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
-
   <div class="container">
     <div class="map-content">
       <img class="map" src="Images/map.png">
+      <audio src="Sounds/Woosh-Mark_DiAngelo-4778593.wav"></audio>
       <img class="pin albania hidden" src="Images/pin.png">
       <img class="pin andorra hidden" src="Images/pin.png">
       <img class="pin armenia hidden" src="Images/pin.png">
@@ -73,10 +73,15 @@
     <div id="screen">00:00</div>
 
     <form id="new-country-form">
-      <input id="new-country-input" autocomplete="off" class="hidden" placeholder="Enter names here">
+      <input id="new-country-input" autocomplete="off" class="hidden" placeholder="Enter contry name here">
     </form>
+  <!--   <button class="start-game">Go!</button> -->
   </div>
-  <button class="">Start!</button>
+  <div class="welcome-screen">
+    <h1>Geography Game!</h1>
+    <h3>Name as many countries in Europe as fast as you can</h3>
+    <button class="enter">Start</button>
+  </div>
   <div class="winner"></div>
   </body>
 </html>
