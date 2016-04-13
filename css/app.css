@@ -29,9 +29,6 @@ img.map {
 
 }
 
-div.scores {
-}
-
 div#screen {
   position: absolute;
   top: 0;
@@ -50,27 +47,19 @@ div#screen {
 #new-country-form {
   clear: both;
 }
-/*button {
-    left: 50%;
-    margin: -40px;
-    position: absolute;
-    top: 50%;
-}*/
+
 button:hover,
 button:active {
     outline: 0;
 }
 
-
 .map-content {
   position: relative;
 }
 
-
 .hidden {
   display: none !important;
 }
-
 
 .welcome-screen {
   background: #C2C6C9;

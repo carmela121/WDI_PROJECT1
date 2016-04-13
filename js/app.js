@@ -2,19 +2,20 @@ $(document).ready(function() {
 
   var time = 60*3;
   var timer;
-  // var $answers = $('#printAnswers');
   var player1 = 0;
   var player2 = 0;
   var player = 1;
   var audio = $('audio')[0];
 
-  //searches for a match on the country list and adds a pin to the right country
+  //searches for a match on the country list and adds a pin to the right country. It also allows upper and lower case.
   function matchCountry(text) {
     var pinClass = "." + text.toLowerCase().replace(/ /g, "-");
     var $pin = $('.pin' + pinClass);
     if (countries.indexOf(text.toLowerCase()) !== -1 && $pin.hasClass('hidden')){
       $pin.removeClass('hidden');
+  // plays win sound
       audio.play();
+  // switches players
       if(player === 1) {
         player1++;
       } else {
@@ -30,21 +31,16 @@ $(document).ready(function() {
     $('.score2').text("Player 2 - "+ player2);
   }
 
+
  $('#new-country-form').on("submit", function(event) {
     event.preventDefault();
     var text = $("#new-country-input").val();
-    
     $("#new-country-input").val("");
     matchCountry(text); 
   });
  
- // var audioWin  = $('audio');
- // var playSound = $(".pin");
- // playSound[0].addEventListener('.pin', function() {
  
- //      audioWin.play();
- //   });
-
+// starts timer
 
   function startClock() {
     console.log("start clock");
@@ -70,7 +66,7 @@ $(document).ready(function() {
         if(player === 1) {
           time = 3*60;
           player = 2;
-          // reset the board
+          // reset the board and shows the welcome screen and button again
           $("#new-country-input").addClass('hidden');
           $('.welcome-screen').removeClass('hidden');
           $('h3').text("Player 2 get ready");
@@ -89,12 +85,6 @@ $(document).ready(function() {
     }, 1000)
   }
 
-
-  // $('.enter').on("click", function() {
-  //   $('.welcome-screen').addClass('hidden')
-  // })
-
-
 //Button click starts the timer and makes the button disapear
   $('button').on("click", function() {
     $('.welcome-screen').addClass('hidden');
@@ -104,5 +94,4 @@ $(document).ready(function() {
     }, 180000); 
   });  
   
-
 });
